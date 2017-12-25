@@ -1,0 +1,347 @@
+<model package="jcrapi.model">
+
+    <!-- api constants -->
+
+    <class name="Version">
+        <const name="VERSION" value="4.0.3" type="String"/>
+    </class>
+
+    <enum name="Endpoints">
+        <const name="BASE" value="http://api.cr-api.com/" type="String"/>
+        <const name="PROFILE" value="player" prefix="BASE" type="String"/>
+        <const name="MULTIPLE_PROFILES" value="player" prefix="BASE" type="String"/>
+        <const name="TOP_CLANS" value="top/clans" prefix="BASE" type="String"/>
+        <const name="SINGLE_CLANS" value="clan" prefix="BASE" type="String"/>
+        <const name="MULTIPLE_CLANS" value="clan" prefix="BASE" type="String"/>
+        <const name="TOP_PLAYERS" value="top/players" prefix="BASE" type="String"/>
+        <const name="CONSTANTS" value="constants" prefix="BASE" type="String"/>
+        <const name="CONSTANTS_ALLIANCE" value="/alliance/" prefix="CONSTANTS" type="String"/>
+        <const name="CONSTANTS_ARENAS" value="/arenas/" prefix="CONSTANTS" type="String"/>
+        <const name="CONSTANTS_BADGES" value="/badges/" prefix="CONSTANTS" type="String"/>
+        <const name="CONSTANTS_CHESTCYCLE" value="/chestCycle/" prefix="CONSTANTS" type="String"/>
+        <const name="CONSTANTS_COUNTRYCODES" value="/countryCodes/" prefix="CONSTANTS" type="String"/>
+        <const name="CONSTANTS_RARITIES" value="/rarities/" prefix="CONSTANTS" type="String"/>
+        <const name="CONSTANTS_CARDS" value="/cards/" prefix="CONSTANTS" type="String"/>
+        <const name="VERSION" value="version" prefix="BASE" type="String"/>
+    </enum>
+
+    <!-- player -->
+
+    <class name="Profile">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="trophies" type="int"/>
+        <member name="arena" type="Arena"/>
+        <member name="clan" type="ProfileClan"/>
+        <member name="games" type="Games"/>
+        <member name="chestCycle" type="ChestCycle"/>
+        <member name="leagueStatistics" type="LeagueStatistics"/>
+        <member name="currentDeck" type="list(Card)"/>
+        <member name="cards" type="list(Card)"/>
+        <member name="achievments" type="list(Achievment)"/>
+        <member name="battles" type="list(Battle)"/>
+    </class>
+
+    <class name="Arena">
+        <member name="name" type="String"/>
+        <member name="arena" type="String"/>
+        <member name="arenaID" type="int"/>
+        <member name="trophyLimit" type="int"/>
+    </class>
+
+    <class name="ProfileClan">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="role" type="String"/>
+        <member name="donations" type="int"/>
+        <member name="donationsReceived" type="int"/>
+        <member name="donationsDelta" type="int"/>
+        <member name="badge" type="Badge"/>
+    </class>
+
+    <class name="Badge">
+        <member name="name" type="String"/>
+        <member name="category" type="String"/>
+        <member name="id" type="int"/>
+        <member name="image" type="String"/>
+    </class>
+
+    <class name="Stats">
+        <member name="tournamentCardsWon" type="int"/>
+        <member name="maxTrophies" type="int"/>
+        <member name="threeCrownWins" type="int"/>
+        <member name="cardsFound" type="int"/>
+        <member name="favoriteCard" type="FavoriteCard"/>
+        <member name="totalDonations" type="int"/>
+        <member name="challengeMaxWins" type="int"/>
+        <member name="challengeCardsWon" type="int"/>
+        <member name="level" type="int"/>
+    </class>
+
+    <class name="FavoriteCard">
+        <member name="name" type="String"/>
+        <member name="maxLevel" type="int"/>
+        <member name="iconUrls" type="IconUrls"/>
+        <member name="key" type="String"/>
+        <member name="elixir" type="int"/>
+        <member name="type" type="String"/>
+        <member name="rarity" type="String"/>
+        <member name="arena" type="int"/>
+        <member name="description" type="String"/>
+    </class>
+
+    <class name="IconUrls">
+        <member name="medium" type="String"/>
+    </class>
+
+    <class name="Games">
+        <member name="total" type="int"/>
+        <member name="tournamentGames" type="int"/>
+        <member name="wins" type="int"/>
+        <member name="winsPercent" type="double"/>
+        <member name="losses" type="int"/>
+        <member name="lossesPercent" type="double"/>
+        <member name="draws" type="int"/>
+        <member name="drawsPercent" type="double"/>
+    </class>
+
+    <class name="ChestCycle">
+        <member name="upcomming" type="list(String)"/>
+        <member name="superMagical" type="int"/>
+        <member name="magical" type="int"/>
+        <member name="legendary" type="int"/>
+        <member name="epic" type="int"/>
+        <member name="giant" type="int"/>
+    </class>
+
+    <class name="LeagueStatistics">
+        <member name="currentSeason" type="CurrentSeason"/>
+        <member name="previousSeason" type="PreviousSeason"/>
+        <member name="bestSeason" type="BestSeason"/>
+    </class>
+
+    <class name="CurrentSeason">
+        <member name="rank" type="int"/>
+        <member name="trophies" type="int"/>
+    </class>
+
+    <class name="PreviousSeason">
+        <member name="id" type="String"/>
+        <member name="rank" type="int"/>
+        <member name="trophies" type="int"/>
+        <member name="bestTrophies" type="int"/>
+    </class>
+
+    <class name="BestSeason">
+        <member name="id" type="String"/>
+        <member name="rank" type="int"/>
+        <member name="trophies" type="int"/>
+    </class>
+
+    <class name="Card">
+        <member name="name" type="String"/>
+        <member name="level" type="int"/>
+        <member name="maxLevel" type="int"/>
+        <member name="count" type="int"/>
+        <member name="iconUrls" type="IconUrls"/>
+        <member name="key" type="String"/>
+        <member name="elixir" type="int"/>
+        <member name="type" type="String"/>
+        <member name="rarity" type="String"/>
+        <member name="arena" type="int"/>
+        <member name="description" type="String"/>
+    </class>
+
+    <class name="Achievment">
+        <member name="name" type="String"/>
+        <member name="stars" type="int"/>
+        <member name="value" type="int"/>
+        <member name="target" type="int"/>
+        <member name="info" type="String"/>
+    </class>
+
+    <class name="Battle">
+        <member name="type" type="String"/>
+        <member name="mode" type="BattleMode"/>
+        <member name="utcTime" type="long"/>
+        <member name="deckType" type="String"/>
+        <member name="teamSize" type="int"/>
+        <member name="winner" type="int"/>
+        <member name="teamCrowns" type="int"/>
+        <member name="opponentCrowns" type="int"/>
+        <member name="team" type="list(Team)"/>
+        <member name="opponent" type="list(Team)"/>
+        <member name="arena" type="Arena"/>
+    </class>
+
+    <class name="BattleMode">
+        <member name="name" type="String"/>
+        <member name="deck" type="String"/>
+        <member name="cardLevels" type="String"/>
+        <member name="overtimeSecons" type="int"/>
+        <member name="players" type="String"/>
+        <member name="sameDeck" type="boolean"/>
+    </class>
+
+    <class name="Team">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="crownsEarned" type="int"/>
+        <member name="startTrophies" type="int"/>
+        <member name="clan" type="TeamClan"/>
+        <member name="deck" type="list(TeamCard)"/>
+    </class>
+
+    <class name="TeamClan">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="badge" type="Badge"/>
+    </class>
+
+    <class name="TeamCard">
+        <member name="name" type="String"/>
+        <member name="level" type="int"/>
+        <member name="maxLevel" type="int"/>
+        <member name="iconUrls" type="IconUrls"/>
+        <member name="key" type="String"/>
+        <member name="elixir" type="int"/>
+        <member name="type" type="String"/>
+        <member name="rarity" type="String"/>
+        <member name="arena" type="int"/>
+        <member name="description" type="String"/>
+    </class>
+
+    <!-- top clans -->
+
+    <class name="TopClan">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="score" type="int"/>
+        <member name="memberCount" type="int"/>
+        <member name="rank" type="int"/>
+        <member name="previousRank" type="int"/>
+        <member name="badge" type="Badge"/>
+        <member name="location" type="Location"/>
+    </class>
+
+    <class name="Location">
+        <member name="name" type="String"/>
+        <member name="isCountry" type="boolean"/>
+        <member name="code" type="String"/>
+    </class>
+
+    <!-- clan -->
+
+    <class name="Clan">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="description" type="String"/>
+        <member name="type" type="String"/>
+        <member name="score" type="int"/>
+        <member name="memberCount" type="int"/>
+        <member name="requiredScore" type="int"/>
+        <member name="donations" type="int"/>
+        <member name="clanChest" type="ClanChest"/>
+        <member name="badge" type="Badge"/>
+        <member name="location" type="Location"/>
+        <member name="members" type="list(Member)"/>
+    </class>
+
+    <class name="ClanChest">
+        <member name="status" type="String"/>
+    </class>
+
+    <class name="Member">
+        <member name="name" type="String"/>
+        <member name="tag" type="String"/>
+        <member name="rank" type="int"/>
+        <member name="previousRank" type="int"/>
+        <member name="role" type="String"/>
+        <member name="expLevel" type="int"/>
+        <member name="trophies" type="int"/>
+        <member name="clanChestCrowns" type="int"/>
+        <member name="donations" type="int"/>
+        <member name="donationsReceived" type="int"/>
+        <member name="donationsDelta" type="int"/>
+        <member name="donationsPercent" type="double"/>
+        <member name="arena" type="Arena"/>
+    </class>
+
+    <!-- top players -->
+
+    <class name="TopPlayer">
+        <member name="name" type="String"/>
+        <member name="tag" type="String"/>
+        <member name="rank" type="int"/>
+        <member name="previousRank" type="int"/>
+        <member name="expLevel" type="int"/>
+        <member name="trophies" type="int"/>
+        <member name="donationsDelta" type="int"/>
+        <member name="clan" type="TeamClan"/>
+        <member name="arena" type="Arena"/>
+    </class>
+
+    <!-- constants -->
+
+    <class name="Constants">
+        <member name="alliance" type="Alliance"/>
+        <member name="arenas" type="list(Arena)"/>
+        <member name="badges" type="Badges"/>
+        <member name="chestCycle" type="ChestCycleList"/>
+        <member name="countryCodes" type="list(CountryCode)"/>
+        <member name="rarities" type="list(Rarity)"/>
+        <member name="cards" type="list(ConstantCard)"/>
+    </class>
+
+    <class name="Alliance">
+        <member name="roles" type="list(String)"/>
+        <member name="types" type="list(String)"/>
+    </class>
+
+    <class name="Badges" extends="map(String,String)">
+    </class>
+
+    <class name="ChestCycleList">
+        <member name="order" type="list(String)"/>
+    </class>
+
+    <class name="CountryCode">
+        <member name="id" type="long"/>
+        <member name="isCountry" type="boolean"/>
+        <member name="key" type="String"/>
+        <member name="name" type="String"/>
+    </class>
+
+    <class name="Rarity">
+        <member name="balance_multiplier" type="int"/>
+        <member name="chance_weight" type="int"/>
+        <member name="clone_relative_level" type="int"/>
+        <member name="donate_capacity" type="int"/>
+        <member name="donate_reward" type="int"/>
+        <member name="donate_xp" type="int"/>
+        <member name="gold_conversion_value" type="int"/>
+        <member name="level_count" type="int"/>
+        <member name="mirror_relative_level" type="int"/>
+        <member name="power_level_multiplier" type="list(int)"/>
+        <member name="refund_gems" type="int"/>
+        <member name="relative_level" type="int"/>
+        <member name="sort_capacity" type="int"/>
+        <member name="upgrade_cost" type="list(int)"/>
+        <member name="upgrade_exp" type="list(int)"/>
+        <member name="upgrade_material_cost" type="list(int)"/>
+    </class>
+
+    <class name="ConstantCard">
+        <member name="card_id" type="int"/>
+        <member name="key" type="String"/>
+        <member name="card_key" type="String"/>
+        <member name="name" type="String"/>
+        <member name="elixir" type="int"/>
+        <member name="type" type="String"/>
+        <member name="rarity" type="String"/>
+        <member name="arena" type="int"/>
+        <member name="description" type="String"/>
+        <member name="decklink" type="String"/>
+    </class>
+
+</model>
