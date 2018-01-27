@@ -3,7 +3,7 @@
     <!-- api constants -->
 
     <class name="Version">
-        <const name="VERSION" value="vv7.5.3" type="String"/>
+        <const name="VERSION" value="v8.3.13" type="String"/>
     </class>
 
     <!-- player -->
@@ -380,6 +380,12 @@
         <member name="score" type="Integer"/>
         <member name="minMembers" type="Integer"/>
         <member name="maxMembers" type="Integer"/>
+    </class>
+
+    <!-- popular tournaments -->
+
+    <class name="PopularTournament" extends="Tournament">
+        <member name="popularity" type="Popularity"/>
     </class>
 
 </model>
