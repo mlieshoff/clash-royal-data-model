@@ -388,5 +388,27 @@
         <member name="popularity" type="Popularity"/>
     </class>
 
+    <!-- clan history-->
+
+    <class name="ClanHistory" extends="map(String,String)">
+        <member name="clanHistoryElements" type="list(ClanHistoryElement)"/>
+    </class>
+
+    <class name="ClanHistoryElement">
+        <member name="donations" type="Integer"/>
+        <member name="memberCount" type="Integer"/>
+        <member name="members" type="list(ClanHistoryMember)"/>
+        <member name="score" type="Integer"/>
+    </class>
+
+    <class name="ClanHistoryMember">
+        <member name="clanRank" type="Integer"/>
+        <member name="crowns" type="Integer"/>
+        <member name="donations" type="Integer"/>
+        <member name="name" type="String"/>
+        <member name="tag" type="String"/>
+        <member name="trophies" type="Integer"/>
+    </class>
+
 </model>
 
