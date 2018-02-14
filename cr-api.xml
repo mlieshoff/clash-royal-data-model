@@ -3,7 +3,7 @@
     <!-- api constants -->
 
     <class name="Version">
-        <const name="VERSION" value="v8.3.13" type="String"/>
+        <const name="VERSION" value="v8.4.53" type="String"/>
     </class>
 
     <!-- player -->
