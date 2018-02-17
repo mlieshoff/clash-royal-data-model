@@ -390,8 +390,7 @@
 
     <!-- clan history-->
 
-    <class name="ClanHistory" extends="map(String,String)">
-        <member name="clanHistoryElements" type="list(ClanHistoryElement)"/>
+    <class name="ClanHistory" extends="map(String,ClanHistoryElement)">
     </class>
 
     <class name="ClanHistoryElement">
