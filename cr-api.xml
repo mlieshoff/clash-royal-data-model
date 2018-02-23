@@ -288,69 +288,6 @@
         <member name="score" type="int"/>
     </class>
 
-    <!-- constants -->
-
-    <class name="Constants">
-        <member name="alliance" type="Alliance"/>
-        <member name="arenas" type="list(Arena)"/>
-        <member name="badges" type="Badges"/>
-        <member name="chestCycle" type="ChestCycleList"/>
-        <member name="countryCodes" type="list(CountryCode)"/>
-        <member name="rarities" type="list(Rarity)"/>
-        <member name="cards" type="list(ConstantCard)"/>
-    </class>
-
-    <class name="Alliance">
-        <member name="roles" type="list(String)"/>
-        <member name="types" type="list(String)"/>
-    </class>
-
-    <class name="Badges" extends="map(String,String)">
-    </class>
-
-    <class name="ChestCycleList">
-        <member name="order" type="list(String)"/>
-    </class>
-
-    <class name="CountryCode">
-        <member name="id" type="long"/>
-        <member name="isCountry" type="boolean"/>
-        <member name="key" type="String"/>
-        <member name="name" type="String"/>
-    </class>
-
-    <class name="Rarity">
-        <member name="balance_multiplier" type="int"/>
-        <member name="chance_weight" type="int"/>
-        <member name="clone_relative_level" type="int"/>
-        <member name="donate_capacity" type="int"/>
-        <member name="donate_reward" type="int"/>
-        <member name="donate_xp" type="int"/>
-        <member name="gold_conversion_value" type="int"/>
-        <member name="level_count" type="int"/>
-        <member name="mirror_relative_level" type="int"/>
-        <member name="power_level_multiplier" type="list(int)"/>
-        <member name="refund_gems" type="int"/>
-        <member name="relative_level" type="int"/>
-        <member name="sort_capacity" type="int"/>
-        <member name="upgrade_cost" type="list(int)"/>
-        <member name="upgrade_exp" type="list(int)"/>
-        <member name="upgrade_material_cost" type="list(int)"/>
-    </class>
-
-    <class name="ConstantCard">
-        <member name="card_id" type="int"/>
-        <member name="key" type="String"/>
-        <member name="card_key" type="String"/>
-        <member name="name" type="String"/>
-        <member name="elixir" type="int"/>
-        <member name="type" type="String"/>
-        <member name="rarity" type="String"/>
-        <member name="arena" type="int"/>
-        <member name="description" type="String"/>
-        <member name="decklink" type="String"/>
-    </class>
-
     <!-- endpoints -->
 
     <class name="Endpoints" extends="list(String)">
