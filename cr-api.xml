@@ -11,6 +11,7 @@
     <class name="Profile">
         <member name="tag" type="String"/>
         <member name="name" type="String"/>
+        <member name="rank" type="int"/>
         <member name="trophies" type="int"/>
         <member name="arena" type="Arena"/>
         <member name="clan" type="ProfileClan"/>
@@ -20,8 +21,10 @@
         <member name="leagueStatistics" type="LeagueStatistics"/>
         <member name="currentDeck" type="list(Card)"/>
         <member name="cards" type="list(Card)"/>
-        <member name="achievments" type="list(Achievment)"/>
+        <member name="achievments" type="list(Achievment)" deprecated="true"/>
+        <member name="achievements" type="list(Achievement)"/>
         <member name="battles" type="list(Battle)"/>
+        <member name="deckLink" type="String"/>
     </class>
 
     <class name="Arena">
@@ -61,9 +64,11 @@
     </class>
 
     <class name="FavoriteCard">
+        <member name="id" type="int"/>
         <member name="name" type="String"/>
         <member name="maxLevel" type="int"/>
-        <member name="iconUrls" type="IconUrls"/>
+        <member name="iconUrls" type="IconUrls" deprecated="true"/>
+        <member name="icon" type="String"/>
         <member name="key" type="String"/>
         <member name="elixir" type="int"/>
         <member name="type" type="String"/>
@@ -72,7 +77,7 @@
         <member name="description" type="String"/>
     </class>
 
-    <class name="IconUrls">
+    <class name="IconUrls" deprecated="true">
         <member name="medium" type="String"/>
     </class>
 
@@ -85,10 +90,16 @@
         <member name="lossesPercent" type="double"/>
         <member name="draws" type="int"/>
         <member name="drawsPercent" type="double"/>
+        <member name="lastBattle" type="LastBattle"/>
+    </class>
+
+    <class name="LastBattle">
+        <member name="type" type="String"/>
+        <member name="time" type="long"/>
     </class>
 
     <class name="ChestCycle">
-        <member name="upcomming" type="list(String)"/>
+        <member name="upcoming" type="list(String)"/>
         <member name="superMagical" type="int"/>
         <member name="magical" type="int"/>
         <member name="legendary" type="int"/>
@@ -105,6 +116,7 @@
     <class name="CurrentSeason">
         <member name="rank" type="int"/>
         <member name="trophies" type="int"/>
+        <member name="bestTrophies" type="int"/>
     </class>
 
     <class name="PreviousSeason">
@@ -121,20 +133,32 @@
     </class>
 
     <class name="Card">
+        <member name="id" type="int"/>
         <member name="name" type="String"/>
         <member name="level" type="int"/>
         <member name="maxLevel" type="int"/>
         <member name="count" type="int"/>
-        <member name="iconUrls" type="IconUrls"/>
+        <member name="iconUrls" type="IconUrls" deprecated="true"/>
+        <member name="icon" type="String"/>
         <member name="key" type="String"/>
         <member name="elixir" type="int"/>
         <member name="type" type="String"/>
         <member name="rarity" type="String"/>
         <member name="arena" type="int"/>
+        <member name="requiredForUpgrade" type="int"/>
+        <member name="leftToUpgrade" type="int"/>
         <member name="description" type="String"/>
     </class>
 
-    <class name="Achievment">
+    <class name="Achievment" deprecated="true">
+        <member name="name" type="String"/>
+        <member name="stars" type="int"/>
+        <member name="value" type="int"/>
+        <member name="target" type="int"/>
+        <member name="info" type="String"/>
+    </class>
+
+    <class name="Achievement">
         <member name="name" type="String"/>
         <member name="stars" type="int"/>
         <member name="value" type="int"/>
@@ -144,7 +168,9 @@
 
     <class name="Battle">
         <member name="type" type="String"/>
+        <member name="challengeType" type="String"/>
         <member name="mode" type="BattleMode"/>
+        <member name="winCountBefore" type="int"/>
         <member name="utcTime" type="long"/>
         <member name="deckType" type="String"/>
         <member name="teamSize" type="int"/>
@@ -160,16 +186,19 @@
         <member name="name" type="String"/>
         <member name="deck" type="String"/>
         <member name="cardLevels" type="String"/>
-        <member name="overtimeSecons" type="int"/>
+        <member name="overtimeSecons" type="int" deprecated="true"/>
+        <member name="overtimeSeconds" type="int"/>
         <member name="players" type="String"/>
         <member name="sameDeck" type="boolean"/>
     </class>
 
     <class name="Team">
         <member name="tag" type="String"/>
+        <member name="deckLink" type="String"/>
         <member name="name" type="String"/>
         <member name="crownsEarned" type="int"/>
         <member name="startTrophies" type="int"/>
+        <member name="trophyChange" type="int"/>
         <member name="clan" type="TeamClan"/>
         <member name="deck" type="list(TeamCard)"/>
     </class>
@@ -181,15 +210,18 @@
     </class>
 
     <class name="TeamCard">
+        <member name="id" type="int"/>
         <member name="name" type="String"/>
         <member name="level" type="int"/>
         <member name="maxLevel" type="int"/>
-        <member name="iconUrls" type="IconUrls"/>
+        <member name="iconUrls" type="IconUrls" deprecated="true"/>
+        <member name="icon" type="String"/>
         <member name="key" type="String"/>
         <member name="elixir" type="int"/>
         <member name="type" type="String"/>
         <member name="rarity" type="String"/>
         <member name="arena" type="int"/>
+        <member name="requiredForUpgrade" type="int"/>
         <member name="description" type="String"/>
     </class>
 
@@ -226,11 +258,21 @@
         <member name="clanChest" type="ClanChest"/>
         <member name="badge" type="Badge"/>
         <member name="location" type="Location"/>
+        <member name="tracking" type="Tracking"/>
         <member name="members" type="list(Member)"/>
+    </class>
+
+    <class name="Tracking">
+        <member name="active" type="boolean"/>
+        <member name="available" type="boolean"/>
+        <member name="snapshotCount" type="int"/>
     </class>
 
     <class name="ClanChest">
         <member name="status" type="String"/>
+        <member name="crowns" type="int"/>
+        <member name="level" type="int"/>
+        <member name="maxLevel" type="int"/>
     </class>
 
     <class name="Member">
@@ -363,9 +405,45 @@
         <member name="endTime" type="String"/>
     </class>
 
-    <!-- open tournaments -->
+    <!-- known tournaments -->
 
     <class name="KnownTournament" extends="OpenTournament">
+    </class>
+
+    <!-- popular decks -->
+
+    <class name="PopularDeck">
+        <member name="decklink" type="String"/>
+        <member name="popularity" type="int"/>
+        <member name="cards" type="list(PopularCard)"/>
+    </class>
+
+    <class name="PopularCard">
+        <member name="arena" type="int"/>
+        <member name="description" type="String"/>
+        <member name="elixir" type="int"/>
+        <member name="icon" type="String"/>
+        <member name="id" type="long"/>
+        <member name="key" type="String"/>
+        <member name="maxLevel" type="int"/>
+        <member name="name" type="String"/>
+        <member name="rarity" type="String"/>
+        <member name="type" type="String"/>
+    </class>
+
+    <!-- clan tracking -->
+
+    <class name="ClanTracking">
+        <member name="tag" type="String"/>
+        <member name="active" type="boolean"/>
+        <member name="available" type="boolean"/>
+        <member name="snapshotCount" type="int"/>
+    </class>
+
+    <!-- auth stats -->
+
+    <class name="AuthStats">
+        <member name="lastRequest" type="long"/>
     </class>
 
 </model>
