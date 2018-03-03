@@ -145,7 +145,7 @@
         <member name="type" type="String"/>
         <member name="rarity" type="String"/>
         <member name="arena" type="int"/>
-        <member name="requiredForUpgrade" type="int"/>
+        <member name="requiredForUpgrade" type="String"/>
         <member name="leftToUpgrade" type="int"/>
         <member name="description" type="String"/>
     </class>
@@ -223,7 +223,7 @@
         <member name="type" type="String"/>
         <member name="rarity" type="String"/>
         <member name="arena" type="int"/>
-        <member name="requiredForUpgrade" type="int"/>
+        <member name="requiredForUpgrade" type="String"/>
         <member name="description" type="String"/>
     </class>
 
