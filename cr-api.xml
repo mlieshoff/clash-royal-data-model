@@ -180,9 +180,11 @@
         <member name="team" type="list(Team)"/>
         <member name="opponent" type="list(Team)"/>
         <member name="arena" type="Arena"/>
+        <member name="tournamentTag" type="String"/>
     </class>
 
     <class name="BattleMode">
+        <member name="id" type="int"/>
         <member name="name" type="String"/>
         <member name="deck" type="String"/>
         <member name="cardLevels" type="String"/>
@@ -236,6 +238,7 @@
         <member name="previousRank" type="int"/>
         <member name="badge" type="Badge"/>
         <member name="location" type="Location"/>
+        <member name="tracking" type="Tracking"/>
     </class>
 
     <class name="Location">
@@ -301,6 +304,7 @@
         <member name="expLevel" type="int"/>
         <member name="trophies" type="int"/>
         <member name="donationsDelta" type="int"/>
+        <member name="clanChestCrowns" type="int"/>
         <member name="clan" type="TeamClan"/>
         <member name="arena" type="Arena"/>
     </class>
@@ -328,6 +332,14 @@
         <member name="tag" type="String"/>
         <member name="name" type="String"/>
         <member name="score" type="int"/>
+        <member name="rank" type="int"/>
+        <member name="clan" type="TournamentClan"/>
+    </class>
+
+    <class name="TournamentClan">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="badgeId" type="int"/>
     </class>
 
     <!-- endpoints -->
@@ -365,6 +377,8 @@
 
     <class name="PopularTournament" extends="Tournament">
         <member name="popularity" type="Popularity"/>
+        <member name="endTime" type="long"/>
+        <member name="playerCount" type="int"/>
     </class>
 
     <!-- clan history-->
@@ -377,6 +391,7 @@
         <member name="memberCount" type="Integer"/>
         <member name="members" type="list(ClanHistoryMember)"/>
         <member name="score" type="Integer"/>
+        <member name="crowns" type="int"/>
     </class>
 
     <class name="ClanHistoryMember">
@@ -443,7 +458,9 @@
     <!-- auth stats -->
 
     <class name="AuthStats">
+        <member name="id" type="long"/>
         <member name="lastRequest" type="long"/>
+        <member name="requestCount" type="long"/>
     </class>
 
 </model>
