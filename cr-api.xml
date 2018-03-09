@@ -342,6 +342,22 @@
         <member name="badgeId" type="int"/>
     </class>
 
+    <class name="SearchedTournament">
+        <member name="tag" type="String"/>
+        <member name="type" type="String"/>
+        <member name="status" type="String"/>
+        <member name="name" type="String"/>
+        <member name="description" type="String"/>
+        <member name="maxCapacity" type="int"/>
+        <member name="preparationDuration" type="int"/>
+        <member name="duration" type="int"/>
+        <member name="createTime" type="long"/>
+        <member name="startTime" type="long"/>
+        <member name="endTime" type="String"/>
+        <member name="playerCount" type="int"/>
+        <member name="members" type="list(TournamentParticipant)"/>
+    </class>
+
     <!-- endpoints -->
 
     <class name="Endpoints" extends="list(String)">
