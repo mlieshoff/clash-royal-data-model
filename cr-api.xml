@@ -3,7 +3,7 @@
     <!-- api constants -->
 
     <class name="Version">
-        <const name="VERSION" value="v10.4.6" type="String"/>
+        <const name="VERSION" value="v10.6.2" type="String"/>
     </class>
 
     <!-- player -->
@@ -321,7 +321,8 @@
         <member name="maxCapacity" type="int"/>
         <member name="preparationDuration" type="int"/>
         <member name="duration" type="int"/>
-        <member name="endedTime" type="String"/>
+        <member name="endedTime" type="String" deprecated="true"/>
+        <member name="endTime" type="String"/>
         <member name="startTime" type="long"/>
         <member name="createTime" type="long"/>
         <member name="creator" type="TournamentParticipant"/>
@@ -476,7 +477,7 @@
     <class name="AuthStats">
         <member name="id" type="long"/>
         <member name="lastRequest" type="long"/>
-        <member name="requestCount" type="long"/>
+        <member name="requestCount" type="map(String,String)"/>
     </class>
 
 </model>
