@@ -3,7 +3,7 @@
     <!-- api constants -->
 
     <class name="Version">
-        <const name="VERSION" value="v10.4.6" type="String"/>
+        <const name="VERSION" value="v10.6.18" type="String"/>
     </class>
 
     <!-- player -->
@@ -322,7 +322,7 @@
         <member name="preparationDuration" type="int"/>
         <member name="duration" type="int"/>
         <member name="endedTime" type="String" deprecated="true"/>
-        <member name="endTime" type="String"/>
+        <member name="endTime" type="long"/>
         <member name="startTime" type="long"/>
         <member name="createTime" type="long"/>
         <member name="creator" type="TournamentParticipant"/>
@@ -354,7 +354,7 @@
         <member name="duration" type="int"/>
         <member name="createTime" type="long"/>
         <member name="startTime" type="long"/>
-        <member name="endTime" type="String"/>
+        <member name="endTime" type="long"/>
         <member name="playerCount" type="int"/>
         <member name="members" type="list(TournamentParticipant)"/>
     </class>
@@ -394,7 +394,6 @@
 
     <class name="PopularTournament" extends="Tournament">
         <member name="popularity" type="Popularity"/>
-        <member name="endTime" type="long"/>
         <member name="playerCount" type="int"/>
     </class>
 
