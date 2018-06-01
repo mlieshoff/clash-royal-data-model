@@ -3,7 +3,7 @@
     <!-- api constants -->
 
     <class name="Version">
-        <const name="VERSION" value="v12.0.104" type="String"/>
+        <const name="VERSION" value="v12.0.144" type="String"/>
     </class>
 
     <!-- player -->
@@ -469,6 +469,75 @@
         <member name="active" type="boolean"/>
         <member name="available" type="boolean"/>
         <member name="snapshotCount" type="int"/>
+    </class>
+
+    <!-- clan war log -->
+
+    <class name="ClanWarLog">
+        <member name="createdDate" type="long"/>
+        <member name="seasonNumber" type="int"/>
+        <member name="participants" type="list(ClanWarLogParticipant)"/>
+        <member name="standings" type="list(ClanWarLogStanding)"/>
+    </class>
+
+    <class name="ClanWarLogParticipant">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="cardsEarned" type="int"/>
+        <member name="battlesPlayed" type="int"/>
+        <member name="wins" type="int"/>
+    </class>
+
+    <class name="ClanWarLogStanding">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="participants" type="int"/>
+        <member name="wins" type="int"/>
+        <member name="crowns" type="int"/>
+        <member name="warTrophies" type="int"/>
+        <member name="warTrophiesChange" type="int"/>
+        <member name="badges" type="list(Badge)"/>
+    </class>
+
+    <!-- clan war -->
+
+    <class name="ClanWar">
+        <member name="state" type="String"/>
+        <member name="warEndTime" type="long"/>
+        <member name="collectionEndTime" type="long"/>
+        <member name="clan" type="ClanWarClan"/>
+        <member name="participants" type="list(ClanWarParticipant)"/>
+        <member name="standings" type="list(ClanWarStanding)"/>
+    </class>
+
+    <class name="ClanWarClan">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="participants" type="int"/>
+        <member name="battlesPlayed" type="int"/>
+        <member name="wins" type="int"/>
+        <member name="crowns" type="int"/>
+        <member name="warTrophies" type="int"/>
+        <member name="badge" type="Badge"/>
+    </class>
+
+    <class name="ClanWarParticipant">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="cardsEarned" type="int"/>
+        <member name="battlesPlayed" type="int"/>
+        <member name="wins" type="int"/>
+    </class>
+
+    <class name="ClanWarStanding">
+        <member name="tag" type="String"/>
+        <member name="name" type="String"/>
+        <member name="participants" type="int"/>
+        <member name="battlesPlayed" type="int"/>
+        <member name="wins" type="int"/>
+        <member name="crowns" type="int"/>
+        <member name="warTrophies" type="int"/>
+        <member name="badge" type="Badge"/>
     </class>
 
     <!-- auth stats -->
