@@ -3,7 +3,7 @@
     <!-- api constants -->
 
     <class name="Version">
-        <const name="VERSION" value="v12.0.144" type="String"/>
+        <const name="VERSION" value="v12.0.160" type="String"/>
     </class>
 
     <!-- player -->
@@ -61,6 +61,7 @@
         <member name="challengeMaxWins" type="int"/>
         <member name="challengeCardsWon" type="int"/>
         <member name="level" type="int"/>
+        <member name="clanCardsCollected" type="int"/>
     </class>
 
     <class name="FavoriteCard">
@@ -91,6 +92,7 @@
         <member name="draws" type="int"/>
         <member name="drawsPercent" type="double"/>
         <member name="lastBattle" type="LastBattle"/>
+        <member name="warDayWins" type="int"/>
     </class>
 
     <class name="LastBattle">
